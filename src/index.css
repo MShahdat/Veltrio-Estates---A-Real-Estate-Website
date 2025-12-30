@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+.slick-dots {
+  bottom: 60px !important;
+  display: flex !important;
+  gap: 4px !important;
+  justify-content: center !important;
+}
+
+.slick-dots li button:before {
+  color: white !important;   /* change dot color */
+  font-size: 12px !important;
+  opacity: .5 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white !important;     /* active dot color */
+  opacity: 1 !important;
+}
