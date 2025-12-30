@@ -53,7 +53,7 @@ const Detail = () => {
   var settings = {
     dots: true,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     speed: 2200,
     slidesToShow: 1,
     slidesToScroll: 1,

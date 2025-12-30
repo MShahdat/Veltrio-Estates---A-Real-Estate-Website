@@ -3,6 +3,7 @@ import { properties } from '../../../public/properties';
 import PropertyCard from './PropertyCard';
 import { IoFilter } from "react-icons/io5";
 import ReactPaginate from 'react-paginate';
+import { IoSearch } from "react-icons/io5";
 
 
 const Property = () => {
@@ -51,21 +52,75 @@ const Property = () => {
     // console.log(cur.selected + 1)
     setIndex(cur.selected + 1)
     window.scrollTo({
-      top:0,
+      top: 0,
       behavior: 'smooth',
     })
   }
 
 
   return (
-    <div className='bg-white dark:bg-black/80'>
-      <div className='max-w-7xl px-4 md:px-8 py-16 mx-auto'>
-        <div className='flex items-center justify-between'>
+    <div className='bg-white overflow-visible dark:bg-black/80'>
+      <div className='bg-[#97755A] w-full pt-0'>
+       <div className='bg-white flex items-center gap-2 text-black/90 rounded w-fit px-4 sm:px-8 py-3 mx-auto'>
+       <IoSearch className='text-[18px]'/>
+         <p className=''>Search Your Best Comfortable Property</p>
+       </div>
+        <form className='px-4 mt-8 pb-16 max-w-7xl mx-auto lg:px-6 xl:px-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 '>
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">Select Area</legend>
+            <select defaultValue="Pick a browser" className="select outline-none bg-white dark:bg-black/95 text-black dark:text-white/80">
+              <option className='hover:bg-[#97755A] hover:text-white'>Default</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Dhaka</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Narayanganj</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Cumilla</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Gazipur</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Chittagong</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Khulna</option>
+            </select>
+          </fieldset>
+
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">Category</legend>
+            <select defaultValue="Pick a browser" className="select outline-none bg-white dark:bg-black/95 text-black dark:text-white/80">
+              <option className='hover:bg-[#97755A] hover:text-white'>All Category</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Villa</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Appartment</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>House</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>Home</option>
+            </select>
+          </fieldset>
+
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">No. of Bed</legend>
+            <select defaultValue="Pick a browser" className="select outline-none bg-white dark:bg-black/95 text-black dark:text-white/80">
+              <option className='hover:bg-[#97755A] hover:text-white'>Default</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>2</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>3</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>4</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>5+</option>
+            </select>
+          </fieldset>
+
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">No. of Bath</legend>
+            <select defaultValue="Pick a browser" className="select outline-none bg-white dark:bg-black/95 text-black dark:text-white/80">
+              <option className='hover:bg-[#97755A] hover:text-white'>Default</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>2</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>3</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>4</option>
+              <option className='hover:bg-[#97755A] hover:text-white'>5+</option>
+            </select>
+          </fieldset>
+        </form>
+      </div>
+      <div className='max-w-7xl px-4 md:px-8 pb-16 mx-auto'>
+
+        <div className='mt-8 flex items-center justify-between'>
           <div className='flex items-center gap-2 text-black/80 dark:text-white'>
             <p className='hidden sm:block font-medium'>Filter</p>
             <IoFilter className=' mt-0.5' />
           </div>
-          <div className='flex items-center gap-2 sm:gap-4 dark:text-white text-black/80'>
+          <div className='flex items-center gap-3 sm:gap-4 dark:text-white text-black/80'>
             <button onClick={() => setFilterType(null)} className={`${filterType === null ? 'font-bold text-[#97755A]' : ''}`}>
               All
             </button>
@@ -87,7 +142,7 @@ const Property = () => {
           </div>
         </div>
         <div className='mt-4 tracking-wide text-center text-black dark:text-white/80'>
-         Showing {property.length} of {filteredProperties.length} properties
+          Showing {property.length} of {filteredProperties.length} properties
         </div>
         <div className='mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 space-y-4'>
           {

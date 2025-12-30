@@ -3,6 +3,7 @@
 export const properties = [
   {
     id: 1,
+    name: '871 Crenshaw Blvd',
     cover: 'https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     url: [
       {
@@ -44,6 +45,7 @@ export const properties = [
   },
   {
     id: 2,
+    name: '871 Crenshaw Blvd',
     cover: 'https://images.unsplash.com/photo-1717167398817-121e3c283dbb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     url: [
       {
@@ -85,6 +87,7 @@ export const properties = [
   },
   {
     id: 3,
+    name: 'Villa in Los Angeles',
     cover: 'https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     url: [
       {
@@ -126,6 +129,7 @@ export const properties = [
   },
   {
     id: 4,
+    name: '853 S Lucerne Blvd',
     cover: 'https://images.unsplash.com/photo-1626249893774-dc11ed24adbe?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     url: [
       {
@@ -167,6 +171,7 @@ export const properties = [
   },
   {
     id: 5,
+    name: '853 S Lucerne Blvd',
     cover: 'https://plus.unsplash.com/premium_photo-1755742204274-14fce63e051a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     url: [
       {
@@ -208,6 +213,7 @@ export const properties = [
   },
   {
     id: 6,
+    name: 'Town House in Los Angeles',
     cover: 'https://images.unsplash.com/photo-1694859035074-cb7166b5e7ce?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     url: [
       {
@@ -249,6 +255,7 @@ export const properties = [
   },
   {
     id: 7,
+    name: '871 Crenshaw Blvd',
     cover: 'https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     url: [
       {
