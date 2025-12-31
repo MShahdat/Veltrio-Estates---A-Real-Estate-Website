@@ -6,6 +6,9 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { LuInstagram } from "react-icons/lu";
 import { FaLinkedin } from "react-icons/fa";
+import {motion} from 'framer-motion';
+import { fadeIn, defaultViewport } from '../../motion/Motion';
+import { MediaQuery } from '../../hook/MediaQuery';
 
 
 const agent = [
@@ -31,17 +34,42 @@ const agent = [
     email: 'office@templete.com'
   },
 ]
+
+
+
+
 const Agent = () => {
+  const isMobile = MediaQuery("(max-width: 639px)");
+  const isTab = MediaQuery("(min-width: 640px) and (max-width: 767px)");
+  const modVal = isTab ? 2 : 3;
   return (
 
     <div className='bg-white dark:bg-black/80'>
       <div className='max-w-5xl px-4 md:px-8 py-16 mx-auto'>
-        <h3 className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Real State Agents</h3>
-        <p className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore.</p>
+        <motion.h3
+        variants={fadeIn("up", .15)}
+                          initial="hidden"
+                          whileInView={'show'}
+                          viewport={defaultViewport}
+        className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Real State Agents</motion.h3>
+        <motion.p
+        variants={fadeIn("up", .25)}
+                          initial="hidden"
+                          whileInView={'show'}
+                          viewport={defaultViewport}
+        className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore.</motion.p>
         <div className='mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {
-            agent.map((ag, idx) => (
-              <div key={idx} className=' border
+            agent.map((ag, idx) => {
+               const delay = isMobile ? 0.15 : (idx % modVal) * 0.25;
+              return(
+                <motion.div
+                variants={fadeIn("up", delay)}
+                                  initial="hidden"
+                                  whileInView={'show'}
+                                  viewport={defaultViewport}
+                
+                key={idx} className=' border
               border-black/5 flex flex-col items-center group transition-all duration-500 ease-in-out'>
                 <div className='w-full group-hover:-translate-y-[13px] duration-500'>
                   <div className='relative w-full h-96'>
@@ -77,8 +105,9 @@ const Agent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))
+              </motion.div>
+              )
+            })
           }
         </div>
       </div>

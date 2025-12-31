@@ -36,7 +36,7 @@ const Testimonials = () => {
     dots: false,
     arrows: false,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: false,
     speed: 3000,
@@ -95,7 +95,7 @@ const Testimonials = () => {
           <Slider ref={slideRef} {...settings}>
             {testimonial.map((tes, idx) => {
               const rat = tes.rating;
-              console.log(rat)
+              // console.log(rat)
               return (
                 <div key={idx} className='mt-12 px-2'>
                   <div className='relative bg-red-50 py-4 px-4 rounded-lg h-[300px]'>

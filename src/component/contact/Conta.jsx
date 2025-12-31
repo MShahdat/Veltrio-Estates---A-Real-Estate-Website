@@ -46,8 +46,18 @@ const Conta = () => {
   return (
     <div className='bg-white dark:bg-black/80'>
       <div className='max-w-7xl px-4 py-16 mx-auto'>
-        <h3 className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Get in Touch</h3>
-        <p className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 max-w-3xl mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatum quisquam similique temporibus dolorum nulla repudiandae, sit eligendi eum provident magni quasi voluptate assumenda!</p>
+        <motion.h3
+        variants={fadeIn("up", .15)}
+                                  initial="hidden"
+                                  whileInView={'show'}
+                                  viewport={defaultViewport}
+        className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Get in Touch</motion.h3>
+        <motion.p
+        variants={fadeIn("up", .25)}
+                                  initial="hidden"
+                                  whileInView={'show'}
+                                  viewport={defaultViewport}
+        className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 max-w-3xl mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatum quisquam similique temporibus dolorum nulla repudiandae, sit eligendi eum provident magni quasi voluptate assumenda!</motion.p>
 
         <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-white'>
           {

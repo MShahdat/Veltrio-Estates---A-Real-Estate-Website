@@ -82,10 +82,10 @@ const Footer = () => {
           <h1 className='mt-4 text-xl uppercase text-white font-bold tracking-widest'>Quick Access</h1>
           <div className='mt-4 flex flex-col text-white/80 gap-1 tracking-wide'>
             <Link to={'/about'}>About Us</Link>
-            <Link to={'/teachers'}>Teachers</Link>
-            <Link to={'/events'}>Events</Link>
-            <Link to={'/privacy'}>Privacy Policy</Link>
-            <Link to={'/terms&condition'}>Terms & Conditions</Link>
+            <Link to={'/agent'}>Agent</Link>
+            <Link to={'/blogs'}>Blogs</Link>
+            <Link to={'/services'}>Services</Link>
+            <Link to={'/'}>Terms & Conditions</Link>
           </div>
         </motion.div>
         <motion.div

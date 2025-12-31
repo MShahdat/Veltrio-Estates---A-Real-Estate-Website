@@ -15,7 +15,7 @@ import Blogs from './pages/Blogs.jsx';
 import Testimonial from './pages/Testimonial.jsx';
 import Services from './pages/Services.jsx';
 import Details from './pages/Details.jsx';
-
+import DetailBlog from './pages/DetailBlog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: '/blogs',
         element: <Blogs></Blogs>
+      },
+      {
+        path: '/blogs/:id',
+        element: <DetailBlog/>
       },
       {
         path: '/testimonials',

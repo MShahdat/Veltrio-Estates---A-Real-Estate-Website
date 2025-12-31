@@ -19,9 +19,9 @@ const Banner = () => {
 
   return (
     <div className=" w-full">
-      <Slider {...settings} className="h-[85vh] overflow-hidden">
+      <Slider {...settings} className="h-[76vh] sm:h-[85vh] overflow-hidden">
         {banner.map((ba, idx) => (
-          <div key={idx} className="relative h-[85vh]"> {/* FIXED */}
+          <div key={idx} className="relative h-[76vh] sm:h-[85vh]"> {/* FIXED */}
             <img
               src={ba.url}
               className="absolute inset-0 w-full h-full object-cover"

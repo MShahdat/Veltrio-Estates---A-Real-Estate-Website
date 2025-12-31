@@ -1,4 +1,7 @@
 import React from 'react';
+import {motion} from 'framer-motion';
+import { fadeIn, defaultViewport } from '../../motion/Motion';
+
 
 const stats = [
   { img: 'https://images.unsplash.com/photo-1695080188241-8f3224874d86?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', number: 1400, label: "Happy Clients" },
@@ -19,8 +22,18 @@ const About2 = () => {
       <div className="relative">
         <div className="text-white bg-[#97755A]/70 min-h-full">
           <div className="max-w-5xl px-4 py-16 mx-auto">
-            <h3 className='text-center text-white tracking-wider font-bold text-3xl md:text-4xl uppercase'>Our Statistics</h3>
-            <p className='text-[16px] tracking-wide mt-3 text-white mx-auto max-w-3xl text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas assumenda deserunt amet, rerum est blanditiis iure vel autem ipsa.</p>
+            <motion.h3
+            variants={fadeIn('up', 0.2)}
+                                        initial="hidden"
+                                        whileInView={'show'}
+                                        viewport={defaultViewport}
+            className='text-center text-white tracking-wider font-bold text-3xl md:text-4xl uppercase'>Our Statistics</motion.h3>
+            <motion.p
+            variants={fadeIn('up', 0.3)}
+                                        initial="hidden"
+                                        whileInView={'show'}
+                                        viewport={defaultViewport}
+            className='text-[16px] tracking-wide mt-3 text-white mx-auto max-w-3xl text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas assumenda deserunt amet, rerum est blanditiis iure vel autem ipsa.</motion.p>
 
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-y-8">
               {stats.map((stat, index) => (

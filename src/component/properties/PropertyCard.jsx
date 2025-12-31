@@ -10,7 +10,7 @@ const PropertyCard = (props) => {
   return (
     <>
       <Link to={`/properties/${props.property.id}`}
-        className='bg-white shadow-xl max-w-[500px] flex flex-col group transition-all ease-in-out'>
+        className='bg-white shadow-xl  flex flex-col group transition-all ease-in-out'>
         <div className='group-hover:-translate-y-[16px] transform duration-500'>
           <div className='relative'>
             <div className='absolute top-1 left-1'>

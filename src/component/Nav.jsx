@@ -97,11 +97,12 @@ const Nav = () => {
       children: [
         { path: '/agent', link: 'Agent' },
         { path: '/services', link: 'Services' },
-        { path: '/blogs', link: 'Blogs' },
+
         { path: '/testimonials', link: 'Testimonials' },
       ]
     },
-    { path: '/events', link: 'Events' },
+    { path: '/blogs', link: 'Blogs' },
+    // { path: '/events', link: 'Events' },
     { path: '/contact', link: 'Contact' },
   ]
 
@@ -111,14 +112,21 @@ const Nav = () => {
                bg-black text-white sticky left-0 top-0 z-50`}>
       <nav
         className='max-w-7xl px-4 py-4 mx-auto flex items-center justify-between'>
-        <Link to={'/'} className='text-2xl sm:text-2xl lg:text-3xl font-bold uppercase'>
-          <div className='flex gap-1 items-center text-[#97755A]'>
-            <BsFillBuildingsFill className='size-8 font-bold' />
-            <h3 className='tracking-wide flex flex-col leading-tight'>Veltrio <span className='text-[12px] px-1'>Estates</span></h3>
+        <div className='flex items-center gap-4'>
+          <div onClick={() => {
+            setOpen(!open)
+          }} className={`block md:hidden text-white/70 border-1 border-white/30 rounded-md px-2 py-0.5`}>
+            {open ? <RxCross2 className='size-6 md:size-8' /> : <IoMdMenu className='size-6 md:size-8' />}
           </div>
-        </Link>
+          <Link to={'/'} className='text-xl sm:text-2xl lg:text-3xl font-bold uppercase'>
+            <div className='flex gap-1 items-center text-[#97755A]'>
+              <BsFillBuildingsFill className='size-6 sm:size-8 font-bold' />
+              <h3 className='tracking-wide flex flex-col leading-tight'>Veltrio <span className='text-[10px] sm:text-[12px] px-1'>Estates</span></h3>
+            </div>
+          </Link>
+        </div>
 
-        <div className='flex items-center gap-4 lg:gap-6'>
+        <div className='flex items-center gap-3 lg:gap-6'>
           {navitem.map((item, idx) => {
             if (item.children) {
               return (
@@ -131,7 +139,7 @@ const Nav = () => {
                     }
                   >
                     <h2>{item.link}</h2>
-                    <IoIosArrowDown className='mt-0 size-6' />
+                    <IoIosArrowDown className='mt-1 size-6' />
                   </NavLink>
 
                   {/* Dropdown */}
@@ -188,25 +196,21 @@ const Nav = () => {
             </div>
 
             <div onClick={() => {
-            }} className='px-4 py-1 text-[16px] bg-[#97755A]  text-white cursor-pointer font-semibold rounded-full hidden md:block '>
-              <div className='flex items-center justify-center gap-1'>
+            }} className='px-3 lg:px-4 py-1 text-[16px] bg-[#97755A]  text-white cursor-pointer font-semibold rounded-full hidden md:block '>
+              <div className='flex items-center justify-center gap-0.5 lg:gap-1'>
                 <h3>Join</h3>
-                <IoMdArrowRoundForward />
+                <IoMdArrowRoundForward className='mt-0.5' />
               </div>
             </div>
 
-            <div onClick={() => {
-              setOpen(!open)
-            }} className={`block md:hidden text-white/70 border-1 border-white/30 rounded-md px-2 py-0.5`}>
-              {open ? <RxCross2 className='size-6 md:size-8' /> : <IoMdMenu className='size-6 md:size-8' />}
-            </div>
+
           </div>
         </div>
 
       </nav>
 
       {/* Mobile menu */}
-      <div className={` w-1/2 sm:w-1/3 fixed ${sideTop ? 'top-19' : ''} right-0  md:hidden bg-white dark:bg-black text-black/80 dark:text-white shadow-2xl px-4 transform transition-transform duration-500 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={` w-1/2 sm:w-1/3 fixed ${sideTop ? 'top-19' : ''} left-0  md:hidden bg-white dark:bg-black text-black/80 dark:text-white shadow-2xl px-4 transform transition-transform duration-500 ${open ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className='flex flex-col gap-4 sm:px-4 mt-0 pt-4 pb-8  '>
           {navitem.map((item, idx) => {
             if (item.children) {

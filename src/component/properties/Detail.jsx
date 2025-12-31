@@ -15,22 +15,23 @@ import { MdOutlineCrisisAlert } from "react-icons/md";
 import Sidebar from './Sidebar';
 import PropertyCard from './PropertyCard';
 import { dataContext } from '../../context/Context';
-
+import { motion } from 'framer-motion';
+import { fadeIn, defaultViewport } from '../../motion/Motion';
 
 const Detail = () => {
   const [
-        open,
-        setOpen,
-        gallery,
-        setGallery,
-        imgIdx,
-        setImgIdx,
-        urlIdx,
-        setUrlIdx,
-      ] = useContext(dataContext)
+    open,
+    setOpen,
+    gallery,
+    setGallery,
+    imgIdx,
+    setImgIdx,
+    urlIdx,
+    setUrlIdx,
+  ] = useContext(dataContext)
 
   const { id } = useParams()
-  
+
   setUrlIdx(Number(id))
   // console.log('pro idx',urlIdx)
   // console.log(id)
@@ -70,8 +71,18 @@ const Detail = () => {
           !property &&
           <p className='text-red-500 text-center '>Property '{id}' Not Found</p>
         }
-        <h3 className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Property Details</h3>
-        <p className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 mx-auto max-w-3xl text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore,</p>
+        <motion.h3
+          variants={fadeIn("up", .15)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={defaultViewport}
+          className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Property Details</motion.h3>
+        <motion.p
+          variants={fadeIn("up", .15)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={defaultViewport}
+          className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 mx-auto max-w-3xl text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore,</motion.p>
         <div className='mt-12 w-full flex flex-col lg:flex-row gap-4'>
           <div className='border border-black/5 dark:border-white/25 lg:w-8/12 text-black/80'>
             <Slider ref={slideRef} {...settings}>
@@ -175,7 +186,7 @@ const Detail = () => {
                     property.url.map((im, idx) => (
                       <div key={idx} onClick={() => {
                         setGallery(true),
-                        setImgIdx(idx)
+                          setImgIdx(idx)
                       }} className=''>
                         <img src={im.image} className='h-[150px] w-full object-cover hover:cursor-zoom-in'></img>
                       </div>
@@ -185,7 +196,7 @@ const Detail = () => {
               </div>
             </div>
           </div>
-          
+
           <div className=' w-full'>
             <Sidebar />
           </div>
