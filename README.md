@@ -1,6 +1,6 @@
 # 🏫 Veltrio – Modern Real Estate Web Application
 
-## 🔗 **Live Website:** https://veltrio-real-estate-website.vercel.app/
+## 🔗 **Live Website:** https://veltrio-real-estate.vercel.app/
 
 Veltrio is a modern, scalable, and fully responsive real estate web application built with React. The platform provides an intuitive browsing experience for property listings, advanced filtering options, agent interaction, and content-driven pages such as blogs and services. It is designed with performance, accessibility, and clean UI architecture in mind.
 
