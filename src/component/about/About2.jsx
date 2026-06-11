@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {motion} from 'framer-motion';
 import { fadeIn, defaultViewport } from '../../motion/Motion';
+import { isFirstVisit } from '../../motion/visitedComponents';
 
 
 const stats = [
@@ -11,6 +12,7 @@ const stats = [
 ];
 
 const About2 = () => {
+  const [isAnimate] = useState(() => isFirstVisit('about2'))
   return (
     <div
       className="w-full relative bg-fixed bg-center bg-cover"
@@ -23,15 +25,15 @@ const About2 = () => {
         <div className="text-white bg-[#97755A]/70 min-h-full">
           <div className="max-w-5xl px-4 py-16 mx-auto">
             <motion.h3
-            variants={fadeIn('up', 0.2)}
-                                        initial="hidden"
-                                        whileInView={'show'}
+            variants={isAnimate ? fadeIn('up', 0.2) : undefined}
+                                        initial={isAnimate ? "hidden" : undefined}
+                                        whileInView={isAnimate ? 'show' : undefined}
                                         viewport={defaultViewport}
             className='text-center text-white tracking-wider font-bold text-3xl md:text-4xl uppercase'>Our Statistics</motion.h3>
             <motion.p
-            variants={fadeIn('up', 0.3)}
-                                        initial="hidden"
-                                        whileInView={'show'}
+            variants={isAnimate ? fadeIn('up', 0.3) : undefined}
+                                        initial={isAnimate ? "hidden" : undefined}
+                                        whileInView={isAnimate ? 'show' : undefined}
                                         viewport={defaultViewport}
             className='text-[16px] tracking-wide mt-3 text-white mx-auto max-w-3xl text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas assumenda deserunt amet, rerum est blanditiis iure vel autem ipsa.</motion.p>
 

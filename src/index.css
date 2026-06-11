@@ -3,6 +3,9 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+body{
+  scroll-behavior: smooth;
+}
 
 .slick-dots {
   bottom: 60px !important;

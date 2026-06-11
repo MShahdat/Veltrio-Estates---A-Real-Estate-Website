@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdOutlineComment } from "react-icons/md";
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 import { fadeIn, defaultViewport } from '../../motion/Motion';
 import { MediaQuery } from '../../hook/MediaQuery';
 import { blogs } from '../../../public/blog';
+import { isFirstVisit } from '../../motion/visitedComponents';
 
 const Blog = () => {
 
@@ -13,20 +14,20 @@ const Blog = () => {
   const modVal = isTab ? 2 : 3;
   
   // console.log(blogs[0].comment.length)
-
+  const [isAnimate] = useState(() => isFirstVisit('blog'))
   return (
     <div className='bg-white dark:bg-black dark:text-white'>
       <div className='max-w-6xl px-4 py-16 mx-auto'>
         <motion.h2
-          variants={fadeIn("up", .2)}
-          initial="hidden"
-          whileInView={'show'}
+          variants={isAnimate ? fadeIn("up", .2) : undefined}
+          initial={isAnimate ? "hidden" : undefined}
+          whileInView={isAnimate ? 'show' : undefined}
           viewport={defaultViewport}
           className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Our Blogs</motion.h2>
         <motion.p
-          variants={fadeIn("up", .3)}
-          initial="hidden"
-          whileInView={'show'}
+          variants={isAnimate ? fadeIn("up", .3) : undefined}
+          initial={isAnimate ? "hidden" : undefined}
+          whileInView={isAnimate ? 'show' : undefined}
           viewport={defaultViewport}
           className='text-[16px] tracking-wide mt-3 max-w-3xl mx-auto dark:text-white/90 text-black/70 text-center'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt dolores at tempore laborum accusantium quos ea excepturi deserunt quam maiores.</motion.p>
         <div className='mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 space-y-4'>
@@ -35,9 +36,9 @@ const Blog = () => {
               const delay = isMobile ? 0.15 : (idx % modVal) * 0.25;
               return (
                 <motion.div
-                  variants={fadeIn("up", delay)}
-                  initial="hidden"
-                  whileInView={'show'}
+                  variants={isAnimate ? fadeIn("up", delay) : undefined}
+                  initial={isAnimate ? "hidden" : undefined}
+                  whileInView={isAnimate ? 'show' : undefined}
                   viewport={defaultViewport}
                   key={idx}
                   className='h-90 relative bg-white shadow-lg rounded-xl hover:scale-103 overflow-hidden duration-500 transform'

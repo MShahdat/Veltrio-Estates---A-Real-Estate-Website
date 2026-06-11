@@ -7,6 +7,7 @@ import { IoSearch } from "react-icons/io5";
 import { MediaQuery } from '../../hook/MediaQuery';
 import { motion } from 'framer-motion';
 import { fadeIn, defaultViewport } from '../../motion/Motion';
+import { isFirstVisit } from '../../motion/visitedComponents';
 
 
 const Property = () => {
@@ -81,6 +82,8 @@ const Property = () => {
       behavior: 'smooth',
     })
   }
+
+  const [isAnimate] = useState(() => isFirstVisit('Property')) 
 
   const isMobile = MediaQuery("(max-width: 639px)");
   const isTab = MediaQuery("(min-width: 640px) and (max-width: 767px)");
@@ -194,13 +197,13 @@ const Property = () => {
         <div className='mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 space-y-4'>
           {
             property.map((pro, idx) => {
-              const delay = isMobile ? 0.15 : (idx % modVal) * 0.25;
+              const delay = isMobile ? 0.15 : (idx % modVal) * 0.2;
               return (
                 <motion.div
-                  variants={fadeIn("up", delay)}
-                  initial="hidden"
-                  whileInView={'show'}
-                  viewport={defaultViewport}
+                  variants={isAnimate ? fadeIn("up", delay) : undefined}
+                  initial={isAnimate ? "hidden" : undefined}
+                  whileInView={isAnimate ? 'show' : undefined}
+                  viewport={isAnimate ? defaultViewport : undefined}
                   key={idx}>
                   <PropertyCard property={pro}></PropertyCard>
                 </motion.div>
@@ -209,9 +212,9 @@ const Property = () => {
           }
         </div>
         <motion.div
-          variants={fadeIn("up", .2)}
-          initial="hidden"
-          whileInView={'show'}
+          variants={isAnimate ? fadeIn("up", .2) : undefined}
+          initial={isAnimate ? "hidden" : undefined}
+          whileInView={isAnimate ? 'show' : undefined}
           viewport={defaultViewport}
         >
           <ReactPaginate

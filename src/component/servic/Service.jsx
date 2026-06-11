@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GiSpookyHouse } from "react-icons/gi";
 import { BsHouseCheckFill } from "react-icons/bs";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
@@ -8,12 +8,13 @@ import { FaMobileScreenButton } from "react-icons/fa6";
 import {motion} from 'framer-motion';
 import { fadeIn, defaultViewport } from '../../motion/Motion';
 import { MediaQuery } from '../../hook/MediaQuery';
+import { isFirstVisit } from '../../motion/visitedComponents';
 
 const Choose = [
   {
     icon: <BsHouseCheckFill />,
     title: 'Search Property',
-    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore,',
+    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident ',
   },
   {
     icon: <GiSpookyHouse />,
@@ -38,24 +39,25 @@ const Choose = [
   {
     icon: <FaMobileScreenButton />,
     title: 'Stated Apps',
-    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore,',
+    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident ',
   },
 ]
 
 const Service = () => {
+  const [isAnimate] = useState(() => isFirstVisit('service'))
   return (
     <div className='bg-white dark:bg-black/80'>
       <div className='max-w-7xl px-4 py-16 mx-auto'>
         <motion.h3
-        variants={fadeIn("up", .15)}
-                                  initial="hidden"
-                                  whileInView={'show'}
+        variants={isAnimate ? fadeIn("up", .15) : undefined}
+                                  initial={isAnimate ? "hidden" : undefined}
+                                  whileInView={isAnimate ? 'show' : undefined}
                                   viewport={defaultViewport}
         className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Our Services</motion.h3>
         <motion.p
-        variants={fadeIn("up", .25)}
-                                  initial="hidden"
-                                  whileInView={'show'}
+        variants={isAnimate ? fadeIn("up", .25) : undefined}
+                                  initial={isAnimate ? "hidden" : undefined}
+                                  whileInView={isAnimate ? 'show' : undefined}
                                   viewport={defaultViewport}
         className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 mx-auto max-w-4xl text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore, sapiente, voluptates, numquam vitae repellat assumenda inventore iusto non dicta in porro. Pariatur vitae molestias facilis quo reiciendis?</motion.p>
 
@@ -63,9 +65,9 @@ const Service = () => {
           {
             Choose.map((item, idx) => (
               <motion.div
-              variants={fadeIn("up", .2)}
-                                        initial="hidden"
-                                        whileInView={'show'}
+              variants={isAnimate ? fadeIn("up", .2) : undefined}
+                                        initial={isAnimate ? "hidden" : undefined}
+                                        whileInView={isAnimate ? 'show' : undefined}
                                         viewport={defaultViewport}
               key={idx} className='text-black flex items-start gap-4'>
                 <p className='mt-4 text-6xl text-[#97755A]'>{item.icon}</p>

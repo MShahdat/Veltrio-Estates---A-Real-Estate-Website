@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdDownloadDone } from "react-icons/md";
 import { motion } from 'framer-motion';
 import { fadeIn, defaultViewport } from '../../motion/Motion';
+import { isFirstVisit } from '../../motion/visitedComponents';
 
 
 const About1 = () => {
@@ -25,6 +26,7 @@ const About1 = () => {
       te: 'Dolore qui placeat maxime',
     },
   ]
+  const [isAnimate] = useState(() => isFirstVisit('about1'))
   return (
     <div className='bg-white dark:bg-black/80'>
       <div className='max-w-7xl px-4 py-16 mx-auto'>
@@ -34,15 +36,15 @@ const About1 = () => {
           </div>
           <div className='mt-6 flex flex-col items-start text-black/60 w-[80%]'>
             <motion.h3
-              variants={fadeIn('up', 0.2)}
-              initial="hidden"
-              whileInView={'show'}
+              variants={isAnimate ? fadeIn('up', 0.2) : undefined}
+              initial={isAnimate ? "hidden" : undefined}
+              whileInView={isAnimate ? 'show' : undefined}
               viewport={defaultViewport}
               className='text-3xl md:text-3xl xl:text-4xl font-bold text-[#97755A]'>We Are The Best RealEstate Company</motion.h3>
             <motion.div
-              variants={fadeIn('up', 0.3)}
-              initial="hidden"
-              whileInView={'show'}
+              variants={isAnimate ? fadeIn('up', 0.3) : undefined}
+              initial={isAnimate ? "hidden" : undefined}
+              whileInView={isAnimate ? 'show' : undefined}
               viewport={defaultViewport}
             >
               <p className='text-[20px] mt-4 dark:text-white/80'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint?</p>
@@ -50,9 +52,9 @@ const About1 = () => {
             </motion.div>
 
             <motion.div
-              variants={fadeIn('up', 0.3)}
-              initial="hidden"
-              whileInView={'show'}
+              variants={isAnimate ? fadeIn('up', 0.3) : undefined}
+              initial={isAnimate ? "hidden" : undefined}
+              whileInView={isAnimate ? 'show' : undefined}
               viewport={defaultViewport}
               className='mt-6 flex flex-col gap-1'>
               {
@@ -65,9 +67,9 @@ const About1 = () => {
               }
             </motion.div>
             <motion.button
-              variants={fadeIn('up', 0.3)}
-              initial="hidden"
-              whileInView={'show'}
+              variants={isAnimate ? fadeIn('up', 0.3) : undefined}
+              initial={isAnimate ? "hidden" : undefined}
+              whileInView={isAnimate ? 'show' : undefined}
               viewport={defaultViewport}
               className='mt-8 xl:mt-12 bg-[#97755A] text-white px-4 py-1.5 rounded-full'>
               Learn More

@@ -108,8 +108,7 @@ const Nav = () => {
 
 
   return (
-    <div className={`
-               bg-black text-white sticky left-0 top-0 z-50`}>
+    <div className={` bg-black text-white sticky left-0 top-0 z-50`}>
       <nav
         className='max-w-7xl px-4 py-4 mx-auto flex items-center justify-between'>
         <div className='flex items-center gap-4'>

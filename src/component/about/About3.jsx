@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GiSpookyHouse } from "react-icons/gi";
 import { FaUsersGear } from "react-icons/fa6";
 import { GiCctvCamera } from "react-icons/gi";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { motion } from 'framer-motion';
 import { fadeIn, defaultViewport } from '../../motion/Motion';
+import { isFirstVisit } from '../../motion/visitedComponents';
 
 
 const Choose = [
   {
     icon: <GiSpookyHouse />,
     title: 'Buy & Rent Modern Properties',
-    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore,',
+    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur?',
   },
   {
     icon: <FaUsersGear />,
@@ -26,24 +27,26 @@ const Choose = [
   {
     icon: <FaMoneyCheckDollar />,
     title: 'Make Investment.',
-    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore,',
+    des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident ',
   },
 ]
 
 const About3 = () => {
+  const [isAnimate] = useState(() => isFirstVisit('About3'))
+  
   return (
     <div className='bg-white dark:bg-black/80'>
       <div className='max-w-7xl px-4 py-16 mx-auto'>
         <motion.h3
-          variants={fadeIn('up', 0.2)}
-          initial="hidden"
-          whileInView={'show'}
+          variants={isAnimate ? fadeIn('up', 0.2) : undefined}
+          initial={isAnimate ? "hidden" : undefined}
+          whileInView={isAnimate ? 'show' : undefined}
           viewport={defaultViewport}
           className='text-center text-black/80 dark:text-[#97755A] tracking-wider font-bold text-3xl md:text-4xl uppercase'>Why Choose Us?</motion.h3>
         <motion.p
-          variants={fadeIn('up', 0.3)}
-          initial="hidden"
-          whileInView={'show'}
+          variants={isAnimate ? fadeIn('up', 0.3) : undefined}
+          initial={isAnimate ? "hidden" : undefined}
+          whileInView={isAnimate ? 'show' : undefined}
           viewport={defaultViewport}
           className='text-[16px] tracking-wide mt-3 dark:text-white/90 text-black/70 mx-auto max-w-4xl text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro commodi possimus consectetur? Provident quibusdam natus labore, sapiente, voluptates, numquam vitae repellat assumenda inventore iusto non dicta in porro. Pariatur vitae molestias facilis quo reiciendis?</motion.p>
 
@@ -51,9 +54,9 @@ const About3 = () => {
           {
             Choose.map((item, idx) => (
               <motion.div
-                variants={fadeIn("up", .2)}
-                initial="hidden"
-                whileInView={'show'}
+                variants={isAnimate ? fadeIn("up", .2) : undefined}
+                initial={isAnimate ? "hidden" : undefined}
+                whileInView={isAnimate ? 'show' : undefined}
                 viewport={defaultViewport}
                 key={idx} className='text-black flex flex-col items-center'>
                 <p className='text-6xl text-[#97755A]'>{item.icon}</p>

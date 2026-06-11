@@ -35,8 +35,8 @@ const Gallary = () => {
     return () => window.removeEventListener('keydown', handleKey);
   }, [gallery, imgIdx])
 
-  const propertImg = properties.filter((item) => item.id === urlIdx)
-  // console.log('images', propertImg[0]?.url);
+  const propertImg = properties.find((item) => item.id === urlIdx)
+  console.log('images', propertImg.url);
   return (
     <div
       onClick={() => setGallery(false)}
@@ -50,7 +50,7 @@ const Gallary = () => {
       <div onClick={(e) => e.stopPropagation()}
         className='h-[30vh] sm:h-[50vh]  lg:h-[70vh] w-[85vw] lg:w-[60vw] rounded relative'>
           {
-          imgIdx < propertImg[0].url.length - 1 &&
+          imgIdx < propertImg.url.length - 1 &&
           <button onClick={(e) => { e.stopPropagation(); setImgIdx(prev => prev + 1) }}
           className='absolute top-1/2 -right-6 sm:-right-8 text-white'>
           <FaArrowRight className=' text-[20px]' />
@@ -64,9 +64,9 @@ const Gallary = () => {
         </button>
         }
           <div className='absolute left-1/2 -translate-x-1/2 -bottom-6'>
-          <p>{imgIdx + 1}/{propertImg[0].url.length}</p>
+          <p>{imgIdx + 1}/{propertImg.url.length}</p>
         </div>
-        <img src={propertImg[0]?.url[imgIdx]?.image} className='w-full h-full object-cover rounded'></img>
+        <img src={propertImg?.url[imgIdx]?.image} className='w-full h-full object-cover rounded'></img>
       </div>
     </div>
   );

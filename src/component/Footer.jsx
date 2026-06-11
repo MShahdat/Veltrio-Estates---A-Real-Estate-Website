@@ -119,7 +119,7 @@ const Footer = () => {
         </motion.div>
       </div>
       <motion.div
-        variants={fadeIn('up', 0.2)}
+        variants={fadeIn('up', 0.15)}
         initial="hidden"
         whileInView={'show'}
         viewport={defaultViewport}

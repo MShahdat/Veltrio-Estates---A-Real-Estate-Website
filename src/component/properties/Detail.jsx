@@ -209,9 +209,14 @@ const Detail = () => {
             <div className='mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 space-y-4'>
               {
                 rec.map((pro, idx) => (
-                  <div key={idx}>
+                  <motion.div
+                  variants={fadeIn('up', 0.2)}
+                  initial = 'hidden'
+                  whileInView={'show'}
+                  viewport={defaultViewport}
+                  key={idx}>
                     <PropertyCard property={pro} />
-                  </div>
+                  </motion.div>
                 ))
               }
             </div>

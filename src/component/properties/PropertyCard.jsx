@@ -11,7 +11,7 @@ const PropertyCard = (props) => {
     <>
       <Link to={`/properties/${props.property.id}`}
         className='bg-white shadow-xl  flex flex-col group transition-all ease-in-out'>
-        <div className='group-hover:-translate-y-[16px] transform duration-500'>
+        <div className='group-hover:-translate-y-[10px] transform duration-500'>
           <div className='relative'>
             <div className='absolute top-1 left-1'>
               <p className='text-[#97755A] transition transform group-hover:bg-[#97755A] group-hover:text-white duration-700  bg-white px-4 py-1 font-bold uppercase tracking-wider'>{props.property.type}</p>

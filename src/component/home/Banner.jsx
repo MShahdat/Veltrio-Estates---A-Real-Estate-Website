@@ -28,7 +28,7 @@ const Banner = () => {
             />
             {/* Overlay content */}
             <div className="relative max-w-5xl mx-auto text-white h-full px-4">
-              <div className="absolute inset-0 -top-1/3 flex items-center justify-center"> {/* now works properly */}
+              <div className="absolute inset-0 -top-1/3 flex items-center justify-center"> {/* now works properly */} m
                 <div className="flex flex-col gap-8 ">
                   <h2 className="bg-black/35 border border-white/55 text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-wide text-center px-8 pt-1 pb-4">
                     {ba.title}
